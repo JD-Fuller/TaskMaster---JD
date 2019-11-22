@@ -1,0 +1,16 @@
+header {
+  color: grey;
+  font-variant: all-small-caps;
+}
+html, body {
+  color: grey;
+  background-color: rgb(32, 32, 32);
+}
+
+.form-group {
+  margin-bottom: 1em;;
+}
+
+.task-list {
+  background-color: rgb(32, 32, 32);
+}

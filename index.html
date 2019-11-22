@@ -11,32 +11,35 @@
 </head>
 
 <body>
-<header class="container-fluid">
+<header class="container-fluid bg-dark">
     <div class="row">
     <h1 class="col-12">Task Master</h1>
 </div>
 </header>
-<main class="container-fluid h-75 bg-dark">
+<main class="container-fluid h-25 bg-dark">
 <div class="row">
     <div class="col-4">
-            <form>
+            <form style="margin-bottom: 1em" onsubmit="app.listController.createList(event)">
                     <div class="form-group">
-                      <label for="inputTaskTitle">Email address</label>
-                      <input type="task" class="form-control" id="inputTaskTitle" aria-describedby="mainTaskTitle" placeholder="Enter Task Title">
-                      <small id="mainTaskTitle" class="form-text text-muted">Enter Task Title</small>
+                      <label for="taskTitle">Task Title</label>
+                      <input type="task" class="form-control" id="taskTitle" aria-describedby="mainTaskTitle" placeholder="Enter Task Title...">
+                      <small id="mainTaskTitle" class="form-text text-muted"></small>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
-
-
-
-    </div>
+                 </div>
+            </div>
+            <div class="container-fluid h-75 task-list">
+<div id="tasks" class="row task-list">
+    <!-- <div class="col-5 mt-3 p-3 border rounded bg-light">
+            <h1 class="text-left border-bottom">Task List Title EXAMPLE${this.title}</h1>
+                <dl class="mt-1">
+                    <dt>Random Task TEXAMPLE ${task-item}</dt>
+                    </dl>
+    </div> -->
 </div>
-
-
+</div>
 </main>
-
-
 <footer></footer>
     <script src="app/main.js" type="module"></script>
 </body>
