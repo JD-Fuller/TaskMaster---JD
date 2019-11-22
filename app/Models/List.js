@@ -18,6 +18,7 @@ export default class List {
             <button class="btn btn-outline btn-danger" onclick="app.listController.removeList('${this.id}')">X</button>
                 <dl class="mt-1">
                     <dt>${this.task}</dt>
+                    <button class="btn btn-outline btn-danger" onclick="app.listController.removeTask('${this.id}')">X</button>
                     </dl>
     </div>
     `;

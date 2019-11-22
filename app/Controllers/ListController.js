@@ -5,7 +5,7 @@ import SERVICE from "../Services/ListService.js";
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
   let listTemplate = ''//make empty list template
-  let list = store.State.lists//let list equal the stored list
+  let list = store.Lists//let list equal the stored list
   list.forEach(list => {listTemplate += list.Template});//for each list from the store that we have, add the new listTemplate
 
   document.querySelector("#tasks").innerHTML = listTemplate //push this out to HTML where the ID=tasks is found
@@ -32,7 +32,6 @@ createList(event){
 
 removeList(id){
   console.log("remove list")
-  debugger;
   ListService.removeList(id);
   _drawLists();
 }

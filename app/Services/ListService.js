@@ -16,13 +16,11 @@ class ListService {
     _store.saveState();
   }
   removeList(listId) {
-    let removeList = _store.State.lists.find(l => l.id == listId);//ID
-debugger;
-    // let listToRemove = removeList.lists.findIndex(l => l.id == listId);
 
-      _store.State.lists.splice(removeList, 1);
+    let removeListId = _store.State.lists.findIndex(l => l.id == listId);//ID
+    // let listToRemove = removeList.lists.findIndex(l => l.id == listId);
+      _store.State.lists.splice(removeListId, 1);
       _store.saveState();
-    
   }
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
@@ -30,12 +28,10 @@ debugger;
   //NOTE You will need this code to persist your data into local storage, be sure to call the store method to save after each change
           
           //push to the store
-
-
-// createTask(newTask){
-//   let task = new Task(newTask);
-//   let tasklist = store.State.lists.
-// }
+createTask(newTask){
+  let task = new Task(newTask);
+  let tasklist = store.State.lists.
+}
           
 }
 

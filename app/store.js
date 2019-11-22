@@ -7,7 +7,9 @@ let _state = {
       id: "",
       name: "Shopping List",
       task: "get bananas"
-    })]
+    })],
+    id: "",
+    
 };
 
 //NOTE You should not need to change the code from this point down
