@@ -23,11 +23,17 @@ createList(event){
   event.preventDefault()
   let formData = event.target
   let newList = {
-   title: formData.taskTitle.value
+   name: formData.taskTitle.value
   };
   SERVICE.createList(newList)
    _drawLists();
   console.log("this is your create list")
-
 };
+
+removeList(id){
+  console.log("remove list")
+  debugger;
+  ListService.removeList(id);
+  _drawLists();
+}
 }

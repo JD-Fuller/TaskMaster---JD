@@ -4,10 +4,10 @@ let _state = {
   /** @type {List[]} */
   lists: [
     new List({
-    name: "Shopping List",
-    task: ['Bananas']
-    }),
-  ]
+      id: "",
+      name: "Shopping List",
+      task: "get bananas"
+    })]
 };
 
 //NOTE You should not need to change the code from this point down

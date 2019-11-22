@@ -11,11 +11,11 @@ export default class List {
   //For starting out, your tasks may be strings alone, but later you may wish to turn them into full objects, that will be up to you
 
 
-  //This use to be get Template(){}
   get Template(){
     return `
     <div class="col-3 mt-3 p-3 border rounded bg-light " style="margin: 1em;">
             <h1 class="text-left border-bottom">${this.name}</h1>
+            <button class="btn btn-outline btn-danger" onclick="app.listController.removeList('${this.id}')">X</button>
                 <dl class="mt-1">
                     <dt>${this.task}</dt>
                     </dl>
