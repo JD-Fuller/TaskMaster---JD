@@ -5,11 +5,10 @@ let _state = {
   lists: [
     new List({
       id: "",
-      name: "Shopping List",
-      task: "get bananas"
+      name: "",
+      tasks: [""]
     })],
     id: "",
-    
 };
 
 //NOTE You should not need to change the code from this point down
