@@ -50,4 +50,8 @@ createTask(event){
   console.log(event.target.task.value)
 }
 
+removeTask(listId, taskId){
+  ListService.removeTask(listId, taskId)
+  _drawLists();
+}
 }

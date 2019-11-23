@@ -7,7 +7,7 @@ export default class List {
     this.id = data.id || generateId();
     this.name = data.name || "Task List";
     // this.task = data.task || "To-Do Item";
-    this.tasks = data.tasks || "get bananas";
+    this.tasks = this.tasks.map(t => new Task(t));
     // this.tasks = data.tasks.map(t => new Task(t));
   }
   //Be sure to add the methods needed to create the view template for this model

@@ -1,6 +1,7 @@
 import List from "../Models/List.js";
 import _store from "../store.js";
 import Task from "../Models/Task.js";
+import store from "../store.js";
 
 //Public
 class ListService {
@@ -29,15 +30,21 @@ class ListService {
           //push to the store
 createTask(taskData){
   let task = new Task(taskData);// task is now an instance of the Task class
-  // let listBox = _store.State.lists.find(t => t.id == task.taskId);
+  let listBox = _store.State.lists.find(list => list.id == task.listId);
   console.log("made it to middle of create task in list service");
-  // listBox.tasks.push(task);
-  _store.State.tasks.push(task);
+  listBox.tasks.push(task);
+  // _store.State.tasks.push(task);
   _store.saveState();
   
   // find(t => t.id == task.listID)
 }
-          
+
+removeTask(listId, taskId){
+  let listFromWhichTaskToBeRemoved = store.State.lists.find(t => t.id == listId);
+  let taskIndex = listFromWhichTaskToBeRemoved.tasks.findIndex(t => t.id == taskId);
+  listFromWhichTaskToBeRemoved.tasks.splice(taskIndex, 1);
+  store.saveState();
+}
 }
 
 const SERVICE = new ListService();
