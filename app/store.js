@@ -1,4 +1,5 @@
 import List from "./Models/List.js";
+import Task from "./Models/Task.js";
 
 let _state = {
   /** @type {List[]} */
@@ -6,9 +7,19 @@ let _state = {
     new List({
       id: "",
       name: "",
-      tasks: [""]
-    })],
-    id: "",
+      tasks: [
+        new Task({
+          name: ""
+        })]
+    })]
+  // tasks: [
+  //     new Task({
+  //       name: ""
+  //     })
+  //   ]
+    // id: "",
+    // name: "",
+    // tasks: [""]
 };
 
 //NOTE You should not need to change the code from this point down

@@ -28,10 +28,12 @@ class ListService {
           
           //push to the store
 createTask(taskData){
-  let task = new Task(taskData);
-  let listBox = _store.State.lists.find(t => t.id == task.taskId);
-  listBox.tasks.push(task)
-  _store.saveState()
+  let task = new Task(taskData);// task is now an instance of the Task class
+  // let listBox = _store.State.lists.find(t => t.id == task.taskId);
+  console.log("made it to middle of create task in list service");
+  // listBox.tasks.push(task);
+  _store.State.tasks.push(task);
+  _store.saveState();
   
   // find(t => t.id == task.listID)
 }

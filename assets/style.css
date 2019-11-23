@@ -14,3 +14,7 @@ html, body {
 .task-list {
   background-color: rgb(32, 32, 32);
 }
+
+.btn {
+  float: right;
+}
