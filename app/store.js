@@ -5,13 +5,15 @@ let _state = {
   /** @type {List[]} */
   lists: [
     new List({
-      id: "",
-      name: "",
+      id: "4",
+      name: "Grocery",
       tasks: [
         new Task({
-          name: ""
+          task: "Bananas",
+          listId: "1"
         })]
-    })]
+    })
+  ]
   // tasks: [
   //     new Task({
   //       name: ""
