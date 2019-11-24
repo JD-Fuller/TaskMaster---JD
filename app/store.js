@@ -2,18 +2,52 @@ import List from "./Models/List.js";
 import Task from "./Models/Task.js";
 
 let _state = {
+  
   /** @type {List[]} */
-  lists: [
-    new List({
-      id: "4",
-      name: "Grocery",
-      tasks: [
-        new Task({
-          task: "Bananas",
-          listId: "1"
-        })]
-    })
-  ]
+  list: [],
+  /**@type {Task[]} */
+  tasks: []
+
+  
+    // new List({
+    //   id: "3",
+    //   name: "House",
+    //   tasks: []
+    // }),
+    // new List({
+    //   id: "4",
+    //   name: "Grocery",
+    //   tasks: [
+    //     new Task({
+    //       task: "Bananas",
+    //       listId: "4"
+    //     })]
+    // }),
+    // new List({
+    //   id: "5",
+    //   name: "Vacation",
+    //   tasks:[]
+    // }),
+    // new List({
+    //   id: "6",
+    //   name: "School",
+    //   tasks: [
+    //     new Task({
+    //     task: "Paper",
+    //     listId: "6"
+    // }),
+    //     new Task({
+    //     task: "Pencils",
+    //     listId: "6"
+    // })
+    // ]
+    // }),
+    // new List({
+    //   id: "7",
+    //   name: "Car",
+    //   tasks: []
+    // })
+  
   // tasks: [
   //     new Task({
   //       name: ""
@@ -39,8 +73,13 @@ class Store {
 
   get Lists() {
     //NOTE use this getter to ensure the objects in list are all of type List
-    return _state.lists.map(list => new List(list));
+    return _state.list.map(list => new List(list));
   }
+
+  // get Tasks() {
+  //   //NOTE use this getter to ensure the tasks objects are all of type task
+  //   return _state.tasks.map(task => new Task(task));
+  // }
 
   //NOTE call saveState everytime you change the state in any way
   saveState() {

@@ -12,7 +12,7 @@ class ListService {
   
   createList(newList){
     let list = new List(newList);//make a new list and push it to the model of List, with the data of newList
-    let listSet = _store.State.lists;//make a new alias of the store listset that's equal to store.State.lists
+    let listSet = _store.State.list;//make a new alias of the store listset that's equal to store.State.lists
     listSet.push(list);//push the new created list to the store
     _store.saveState();
   }
@@ -30,9 +30,10 @@ class ListService {
           //push to the store
 createTask(taskData){
   let task = new Task(taskData);// task is now an instance of the Task class
-  let listBox = _store.State.lists.find(list => list.id == task.listId);
+  let list = _store.State.lists.find(t => t.id == task.listId);
   console.log("made it to middle of create task in list service");
-  listBox.tasks.push(task);
+  console.log(list);
+  _store.State.lists.push(task);
   // _store.State.tasks.push(task);
   _store.saveState();
   

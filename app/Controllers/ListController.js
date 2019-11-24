@@ -24,10 +24,11 @@ export default class ListController {
     let newList = {
       listId,
       name: formData.taskTitle.value,
-      task: formData.task.value
+      tasks: ['']
     };
     SERVICE.createList(newList)
     _drawLists();
+    formData.reset();
   }
   removeList(id){
     event.preventDefault();
@@ -40,7 +41,6 @@ createTask(event, listId){
   console.log("add a task")
   event.preventDefault()
   let formData = event.target
-debugger;
   let newTask = {
     listId: listId,
     task: formData.task.value
