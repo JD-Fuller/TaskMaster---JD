@@ -46,7 +46,7 @@ debugger;
     task: formData.task.value
 };
   SERVICE.createTask(newTask)
-  formData.reset()
+  // formData.reset()
   _drawLists()
   console.log(event.target.task.value)
 }
