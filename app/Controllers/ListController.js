@@ -8,7 +8,7 @@ function _drawLists() {
   let list = store.Lists//let list equal the stored list
   list.forEach(list => {listTemplate += list.template});//for each list from the store that we have, add the new listTemplate
 
-  document.querySelector("#tasks").innerHTML = listTemplate //push this out to HTML where the ID=tasks is found
+  document.querySelector("#lists").innerHTML = listTemplate //push this out to HTML where the ID=tasks is found
 }
 
 function _drawTasks(){
@@ -16,7 +16,7 @@ function _drawTasks(){
   let task = store.Tasks
   task.forEach(task => {taskTemplate += task.template})
 
-  document.querySelector("#tasks").innerHTML = taskTemplate
+  document.querySelector("#task").innerHTML = taskTemplate
 }
 
 //Public
@@ -49,7 +49,7 @@ createTask(event, listId){
   console.log("add a task")
   event.preventDefault()
   let formData = event.target
-  let newTask = {
+  let newTask = { 
     listId: listId,
     task: formData.task.value
 };
@@ -63,5 +63,6 @@ createTask(event, listId){
 removeTask(listId, taskId){
   ListService.removeTask(listId, taskId)
   _drawLists();
+  _drawTasks();
 }
 }

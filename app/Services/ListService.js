@@ -44,11 +44,13 @@ class ListService {
 createTask(taskData){
   let task = taskData;// task is now an instance of the Task class
   debugger;
-  let list = _store.State.list.find(t => t.id == task.listId);
+  let listIndex = _store.State.list.find(list => list.id == task.listId);
+  // let taskID = _store.State.task.find(id => id.id == task.listId) Not Tested - reciprocal of let lest
   console.log("made it to middle of create task in list service");
-  console.log(list);
-  debugger;
-  _store.State.task.push(task);
+  console.log(listIndex);
+  if (listIndex.id == task.listId){
+  _store.State.task.push(task)}
+  else {return undefined;}
   _store.saveState();
   
   // find(t => t.id == task.listID)
@@ -58,9 +60,13 @@ createTask(taskData){
 
 
 removeTask(listId, taskId){
-  let listFromWhichTaskToBeRemoved = store.State.task.find(t => t.id == listId);
-  let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
-  listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
+
+  let listFromWhichTaskToBeRemoved = store.State.task.findIndex(t => t.id == listId);
+  // let listFromWhichTaskToBeRemoved = store.State.task.find(t => t.id == listId);
+  // let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
+  // listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
+_store.State.task.splice(listFromWhichTaskToBeRemoved, 1);
+
   store.saveState();
 }
 }

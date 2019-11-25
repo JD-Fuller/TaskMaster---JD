@@ -10,19 +10,20 @@ export default class List {
     debugger;
     this.tasks = [];
     // this.tasks = [''];
-    // this.tasks = tasks.find(t => new Task(t)) || "To-DO Item";
+    // this.tasks = tasks.map(t => new Task(t));
   }
   //Be sure to add the methods needed to create the view template for this model
   //For starting out, your tasks may be strings alone, but later you may wish to turn them into full objects, that will be up to you
 
 
   get template(){
-    debugger;
+    // debugger;
     return `
-    <div class="col-3 mt-3 p-3 border rounded bg-light " style="margin: 1em;">
+    <div class="col-3 mt-3 p-3 border rounded bg-light tasks" style="margin: 1em;">
             <h1 class="text-left border-bottom" id="name">${this.name}<button class="btn btn-outline btn-danger" onclick="app.listController.removeList('${this.id}')">X</button></h1>
-            <p>${this.tasks}</p>
-            <p>${this.drawTask()}</p>
+            <div id="task"><h2>${this.tasks}</h2></div>
+           
+
             <form style="margin-bottom: 1em;" onsubmit="app.listController.createTask(event,'${this.id}')">
             <div class="input-group mb-3">
                     <input id="task" type="text" class="form-control" placeholder="Add Task" aria-label="task" aria-describedby="task-addon">
@@ -45,5 +46,9 @@ export default class List {
     return template
   }
 
+
+  // <h2>${globalThis.task}</h2>
+  // <p>${this.tasks}</p>
+  // <p>${this.drawTask()}</p>
 
 }
