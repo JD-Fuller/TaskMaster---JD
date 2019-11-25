@@ -41,31 +41,33 @@ class ListService {
 //   // find(t => t.id == task.listID)
 // }
 
-createTask(taskData){
-  let task = taskData;// task is now an instance of the Task class
-  debugger;
-  let listIndex = _store.State.list.find(list => list.id == task.listId);
+createTask(newTask){
+  let freshTask = new Task(newTask);// task is now an instance of the Task class
+  let listIndex = _store.State.list.find(l => l.id == freshTask.listId);
   // let taskID = _store.State.task.find(id => id.id == task.listId) Not Tested - reciprocal of let lest
   console.log("made it to middle of create task in list service");
   console.log(listIndex);
-  if (listIndex.id == task.listId){
-  _store.State.tasks.push(task)}
-  else {return undefined;}
+  debugger;
+  listIndex.tasks.push(freshTask);
   _store.saveState();
   
   // find(t => t.id == task.listID)
 }
 
-
-
-
 removeTask(listId, taskId){
 let z = confirm("Are you Sure you want to delete this task?")
-  let listFromWhichTaskToBeRemoved = store.State.tasks.find(t => t.id == listId);
-  // let listFromWhichTaskToBeRemoved = store.State.task.find(t => t.id == listId);
+  // let listFromWhichTaskToBeRemoved = store.State.tasks.find(t => t.id == listId);//THIS ONE WORKS - sort of
+
+   let listFromWhichTaskToBeRemoved = store.State.list.find(l => l.id == listId);
   // let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
   // listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
-_store.State.tasks.splice(listFromWhichTaskToBeRemoved, 1);
+//_store.State.tasks.splice(listFromWhichTaskToBeRemoved, 1); //THis was workign with line 60
+debugger;
+let taskToRemove = store.State.tasks.find(t => t.id == listFromWhichTaskToBeRemoved);
+
+store.State.tasks.splice(taskToRemove, 1);
+
+
 
   store.saveState();
 }
