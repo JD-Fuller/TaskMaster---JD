@@ -11,10 +11,10 @@ export default class Task {
   }
 
 
-  get Template(){
+  get template(){
     return `
                 <dl class="mt-1">
-                    <dt id="task">${this.task}</dt>
+                    <dt>${this.task}</dt>
                     <button class="btn btn-outline btn-danger" onclick="app.listController.removeTask('${this.id}','${this.listId}')">X</button></dl>
                     `;
   }

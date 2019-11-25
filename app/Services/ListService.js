@@ -17,9 +17,9 @@ class ListService {
     _store.saveState();
   }
   removeList(listId) {
-    let removeListId = _store.State.lists.findIndex(l => l.id == listId);//ID
+    let removeListId = _store.State.list.findIndex(l => l.id == listId);//ID
     // let listToRemove = removeList.lists.findIndex(l => l.id == listId);
-      _store.State.lists.splice(removeListId, 1);
+      _store.State.list.splice(removeListId, 1);
       _store.saveState();
   }
   //TODO  Here is where we handle all of our business logic,
@@ -28,22 +28,39 @@ class ListService {
   //NOTE You will need this code to persist your data into local storage, be sure to call the store method to save after each change
           
           //push to the store
+// createTask(taskData){
+//   let task = new Task(taskData);// task is now an instance of the Task class
+//   debugger;
+//   let list = _store.State.task.find(t => t.id == task.listId);
+//   console.log("made it to middle of create task in list service");
+//   console.log(list);
+//   debugger;
+//   _store.State.tasks.push(task);
+//   _store.saveState();
+  
+//   // find(t => t.id == task.listID)
+// }
+
 createTask(taskData){
-  let task = new Task(taskData);// task is now an instance of the Task class
-  let list = _store.State.lists.find(t => t.id == task.listId);
+  let task = taskData;// task is now an instance of the Task class
+  debugger;
+  let list = _store.State.list.find(t => t.id == task.listId);
   console.log("made it to middle of create task in list service");
   console.log(list);
-  _store.State.lists.push(task);
-  // _store.State.tasks.push(task);
+  debugger;
+  _store.State.task.push(task);
   _store.saveState();
   
   // find(t => t.id == task.listID)
 }
 
+
+
+
 removeTask(listId, taskId){
-  let listFromWhichTaskToBeRemoved = store.State.lists.find(t => t.id == listId);
-  let taskIndex = listFromWhichTaskToBeRemoved.tasks.findIndex(t => t.id == taskId);
-  listFromWhichTaskToBeRemoved.tasks.splice(taskIndex, 1);
+  let listFromWhichTaskToBeRemoved = store.State.task.find(t => t.id == listId);
+  let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
+  listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
   store.saveState();
 }
 }

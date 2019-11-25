@@ -6,9 +6,17 @@ import SERVICE from "../Services/ListService.js";
 function _drawLists() {
   let listTemplate = ''//make empty list template
   let list = store.Lists//let list equal the stored list
-  list.forEach(list => {listTemplate += list.Template});//for each list from the store that we have, add the new listTemplate
+  list.forEach(list => {listTemplate += list.template});//for each list from the store that we have, add the new listTemplate
 
   document.querySelector("#tasks").innerHTML = listTemplate //push this out to HTML where the ID=tasks is found
+}
+
+function _drawTasks(){
+  let taskTemplate = ''
+  let task = store.Tasks
+  task.forEach(task => {taskTemplate += task.template})
+
+  document.querySelector("#tasks").innerHTML = taskTemplate
 }
 
 //Public
@@ -48,6 +56,7 @@ createTask(event, listId){
   SERVICE.createTask(newTask)
   // formData.reset()
   _drawLists()
+  _drawTasks()//added to try and draw task direct to HTML
   console.log(event.target.task.value)
 }
 
