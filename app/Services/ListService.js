@@ -49,7 +49,7 @@ createTask(taskData){
   console.log("made it to middle of create task in list service");
   console.log(listIndex);
   if (listIndex.id == task.listId){
-  _store.State.task.push(task)}
+  _store.State.tasks.push(task)}
   else {return undefined;}
   _store.saveState();
   
@@ -60,12 +60,12 @@ createTask(taskData){
 
 
 removeTask(listId, taskId){
-let z = confirm("Are you Sure you want to delete this task?");
-  let listFromWhichTaskToBeRemoved = store.State.task.findIndex(t => t.id == listId);
+let z = confirm("Are you Sure you want to delete this task?")
+  let listFromWhichTaskToBeRemoved = store.State.tasks.find(t => t.id == listId);
   // let listFromWhichTaskToBeRemoved = store.State.task.find(t => t.id == listId);
   // let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
   // listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
-_store.State.task.splice(listFromWhichTaskToBeRemoved, 1);
+_store.State.tasks.splice(listFromWhichTaskToBeRemoved, 1);
 
   store.saveState();
 }

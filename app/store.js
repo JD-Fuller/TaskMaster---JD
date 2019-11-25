@@ -85,7 +85,7 @@ class Store {
 
   get Tasks() {
     //NOTE use this getter to ensure the tasks objects are all of type task
-    return _state.task.map(task => new Task(task));
+    return _state.tasks.map(task => new Task(task));
   }
 
   //NOTE call saveState everytime you change the state in any way

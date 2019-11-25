@@ -6,7 +6,6 @@ export default class List {
   constructor({id = generateId(), name, tasks}) {
     this.id = id || generateId();
     this.name = name || "Task List";
-    debugger;
     // this.tasks = [];
     this.tasks = [''];
     // this.tasks = tasks.map(t => new Task(t));
@@ -16,7 +15,6 @@ export default class List {
 
 
   get template(){
-    // debugger;
     return `
     <div class="col-3 mt-3 p-3 border rounded bg-light tasks" style="margin: 1em;">
             <h1 class="text-left border-bottom" id="name">${this.name}<button class="btn btn-outline btn-danger" onclick="app.listController.removeList('${this.id}')">X</button></h1>
