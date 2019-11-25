@@ -60,10 +60,10 @@ createTask(taskData){
 
 
 removeTask(listId, taskId){
-
+let z = confirm("Are you Sure you want to delete this task?");
   let listFromWhichTaskToBeRemoved = store.State.task.findIndex(t => t.id == listId);
   // let listFromWhichTaskToBeRemoved = store.State.task.find(t => t.id == listId);
-  let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
+  // let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
   // listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
 _store.State.task.splice(listFromWhichTaskToBeRemoved, 1);
 
