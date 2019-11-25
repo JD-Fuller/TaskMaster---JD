@@ -7,7 +7,7 @@ let _state = {
   list: [
       // new List({
       //   name: "Homework",
-      //   tasks: []
+        // tasks: []
       // })
   ],
   tasks: []

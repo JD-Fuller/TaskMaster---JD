@@ -11,13 +11,15 @@ function _drawLists() {
   document.querySelector("#lists").innerHTML = listTemplate //push this out to HTML where the ID=tasks is found
 }
 
-function _drawTasks(){
-  let taskTemplate = ''
-  let task = store.Tasks
-  task.forEach(task => {taskTemplate += task.template})
+// function _drawTasks(){
+//   let taskTemplate = ''
+//   let task = store.Tasks
+//   task.forEach(task => {taskTemplate += task.templateTask})
 
-  document.querySelector("#task").innerHTML = taskTemplate
-}
+//   debugger;
+
+//   document.querySelector("#task").innerHTML = taskTemplate
+// }
 
 //Public
 export default class ListController {
@@ -32,10 +34,11 @@ export default class ListController {
     let newList = {
       listId,
       name: formData.taskTitle.value,
-      tasks: ['']
+      tasks: []
     };
     SERVICE.createList(newList)
     _drawLists();
+    // _drawTasks();
     formData.reset();
   }
   removeList(id){
@@ -43,26 +46,29 @@ export default class ListController {
     console.log("remove list")
     SERVICE.removeList(id);
     _drawLists();
+    // _drawTasks();
   }
 
 createTask(event, listId){
   console.log("add a task")
   event.preventDefault()
   let formData = event.target
+  debugger;
   let newTask = { 
     listId: listId,
     task: formData.task.value
 };
   SERVICE.createTask(newTask)
-  // formData.reset()
   _drawLists()
-  _drawTasks()//added to try and draw task direct to HTML
+  // _drawTasks()//added to try and draw task direct to HTML
   console.log(event.target.task.value)
 }
 
 removeTask(listId, taskId){
+  event.preventDefault();
+  debugger
   ListService.removeTask(listId, taskId)
   _drawLists();
-  _drawTasks();
+  // _drawTasks();
 }
 }

@@ -17,10 +17,13 @@ class ListService {
     _store.saveState();
   }
   removeList(listId) {
-    let removeListId = _store.State.list.findIndex(l => l.id == listId);//ID
-    // let listToRemove = removeList.lists.findIndex(l => l.id == listId);
+    let z = confirm("Are you Sure you want to delete this list?")
+    if (z){
+      let removeListId = _store.State.list.findIndex(l => l.id == listId);//ID
       _store.State.list.splice(removeListId, 1);
       _store.saveState();
+    }
+    // let listToRemove = removeList.lists.findIndex(l => l.id == listId);
   }
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
@@ -56,20 +59,14 @@ createTask(newTask){
 
 removeTask(listId, taskId){
 let z = confirm("Are you Sure you want to delete this task?")
-  // let listFromWhichTaskToBeRemoved = store.State.tasks.find(t => t.id == listId);//THIS ONE WORKS - sort of
+if (z){
+  let listFromWhichTaskToBeRemoved = store.State.list.find(l => l.id == listId);
+  let taskToRemove = listFromWhichTaskToBeRemoved.tasks.findIndex(t => t.id == taskId);
+  
+  listFromWhichTaskToBeRemoved.tasks.splice(taskToRemove, 1);
+    store.saveState();
+}
 
-   let listFromWhichTaskToBeRemoved = store.State.list.find(l => l.id == listId);
-  // let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
-  // listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
-//_store.State.tasks.splice(listFromWhichTaskToBeRemoved, 1); //THis was workign with line 60
-debugger;
-let taskToRemove = store.State.tasks.find(t => t.id == listFromWhichTaskToBeRemoved);
-
-store.State.tasks.splice(taskToRemove, 1);
-
-
-
-  store.saveState();
 }
 }
 
