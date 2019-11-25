@@ -4,9 +4,15 @@ import Task from "./Models/Task.js";
 let _state = {
   
   /** @type {List[]} */
-  list: [],
-   /** @type {Task[]} */
-   task: []//added to see if we can add tasks to html
+  list: [
+      // new List({
+      //   name: "Homework",
+      //   tasks: []
+      // })
+  ],
+  tasks: []
+  //  /** @type {Task[]} */
+  //  task: []//added to see if we can add tasks to html
   
 
   
