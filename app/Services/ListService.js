@@ -63,7 +63,7 @@ removeTask(listId, taskId){
 
   let listFromWhichTaskToBeRemoved = store.State.task.findIndex(t => t.id == listId);
   // let listFromWhichTaskToBeRemoved = store.State.task.find(t => t.id == listId);
-  // let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
+  let taskIndex = listFromWhichTaskToBeRemoved.task.findIndex(t => t.id == taskId);
   // listFromWhichTaskToBeRemoved.task.splice(taskIndex, 1);
 _store.State.task.splice(listFromWhichTaskToBeRemoved, 1);
 
